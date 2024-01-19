@@ -1,23 +1,21 @@
-import logo from './logo.svg';
+
 import './App.css';
+import Navbar from './Component/Navbar';
+import Banner from './Component/Banner';
+import { Routes, Route } from 'react-router-dom';
+import Detail from './Component/Detail';
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          My First Repository 
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Shamroz Khan
-        </a>
-      </header>
+    <div>
+      <Navbar />
+      <Routes>
+        <Route path='/' element={<Banner />} />
+        <Route path="/ReadMore/:id" element={<Detail />} />
+      </Routes>
+
     </div>
   );
 }

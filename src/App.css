@@ -1,38 +1,93 @@
-.App {
-  text-align: center;
+body {
+  font-family: 'Shantell Sans', cursive;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+.g-clr {
+  color: #009630;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+/* NAVBAR start ===============================*/
+.navbar {
+  padding: 30px;
+  
+}
+
+.nav-item a {
+  color: rgb(79, 89, 95);
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.nav-item i {
+  color: rgb(149, 149, 149);
+  font-size: 80%;
+}
+
+.nav-item a:hover{
+  color: #009630 ;
+}
+
+.navbar form a i {
+  color: #009630;
+  font-size: 80%;
+}
+
+/* Button */
+.btn-planner {
+  border-radius: 22px;
+  background-color: #009630;
+  margin: 4px;
+  font-weight: bold;
+}
+
+.btn-planner:hover {
+  background-color: #075607;
+}
+
+.btn-check:checked+.btn, .btn.active, .btn.show, .btn:first-child:active, :not(.btn-check)+.btn:active {
+  border-radius: 22px;
+  background-color: #009630;
+  margin: 4px;
+  
+}
+
+/* Read More  */
+.Blog-Data .Read-More{
+font-style: italic;
+color: #009630;
+}
+
+.Blog-Data .Read-More:hover{
+  font-style: italic;
+  cursor: pointer;
+ color:#075607;
   }
+
+
+/* BANNER start ============================*/
+
+.banner-wrapper {
+  padding-top: 40px;
+
+}
+/* Data File  */
+
+.Blog-Data .card{
+  border: none;
+  margin: 0px 80px;
+}
+.Blog-Data .card:hover{
+  border: none;
+  background-color: #ffecec;
+  color: rgb(217, 90, 90);
+
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/*  Detail  ==================================*/
+.Blog-Page .card {
+  background-color: #e3ffec;
+  border-radius: 30px;
+  padding: 10px;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
