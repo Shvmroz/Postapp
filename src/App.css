@@ -1,8 +1,6 @@
 body {
   font-family: 'Shantell Sans', cursive;
 }
-
-
 .g-clr {
   color: #009630;
 }
@@ -12,7 +10,6 @@ body {
   padding: 30px;
   
 }
-
 .nav-item a {
   color: rgb(79, 89, 95);
   margin-right: 10px;
@@ -24,7 +21,7 @@ body {
   font-size: 80%;
 }
 
-.nav-item a:hover{
+.navbar .nav-item a:hover{
   color: #009630 ;
 }
 

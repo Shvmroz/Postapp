@@ -619,9 +619,11 @@ const Data = () => {
 
     // localStorage.setItem("data",JSON.stringify(data))
     
+    const name=['Shamroz', 'khan']; // This is used for showing second Array of Name using key2 in the state
 
     if (data) {
-      navigate(`/ReadMore/${data.id}`, { state: data });
+      navigate(`/ReadMore/${data.id}`, { state:{key:data, key2:name} });
+
     }
   })
 
@@ -648,7 +650,6 @@ const Data = () => {
             </div>
           </div>
         )
-
       })}
     </>
   )
