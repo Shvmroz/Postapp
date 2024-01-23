@@ -48,18 +48,28 @@ body {
   margin: 4px;
   
 }
+/* delete button  */
+.delete-button{
+  border-radius: 22px;
+  background-color: #eb807d;
 
-/* Read More  */
-.Blog-Data .Read-More{
-font-style: italic;
-color: #009630;
+  border: 0px;
+}
+.delete-button:hover{
+  border-radius: 22px;
+  background-color: #af2e29;
+
 }
 
-.Blog-Data .Read-More:hover{
+/* Read More  */
+.Blog-Data .Read-More a{
+  color: #9a9a9a;
   font-style: italic;
-  cursor: pointer;
- color:#075607;
-  }
+  text-decoration: none;
+}
+.Blog-Data .Read-More a:hover{
+color: #009630;
+}
 
 
 /* BANNER start ============================*/

@@ -1,8 +1,4 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
-
-const Data = () => {
-  const data = [
+const Data = [
     {
       userId: 1,
       id: 1,
@@ -612,47 +608,4 @@ const Data = () => {
       body: "cupiditate quo est a modi nesciunt soluta\nipsa voluptas error itaque dicta in\nautem qui minus magnam et distinctio eum\naccusamus ratione error aut",
     },
   ];
-
-  const navigate = useNavigate();
-
-  const handleClick = ((data) => {
-
-    // localStorage.setItem("data",JSON.stringify(data))
-    
-    const name=['Shamroz', 'khan']; // This is used for showing second Array of Name using key2 in the state
-
-    if (data) {
-      navigate(`/ReadMore/${data.id}`, { state:{key:data, key2:name} });
-
-    }
-  })
-
-  return (
-    <>
-      {data.map((items, index) => {
-        return (
-          <div className="Blog-Data">
-            <div className="container" key={index}>
-              <div className="row">
-                <div className=" col-lg-12">
-                  <div className="card my-3">
-                    <div className="card-body">
-                      <div className="card-title p-2 "><h3><b>{items.title}</b></h3>
-                        <div className="card-text text-black"><p>{items.body}</p>
-                          <span className="Read-More"
-                            onClick={() => handleClick(items)}>Read More..</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        )
-      })}
-    </>
-  )
-};
-
 export default Data;
