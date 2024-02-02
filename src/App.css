@@ -1,6 +1,7 @@
 body {
   font-family: 'Shantell Sans', cursive;
 }
+
 .g-clr {
   color: #009630;
 }
@@ -42,35 +43,51 @@ body {
   background-color: #075607;
 }
 
-.btn-check:checked+.btn, .btn.active, .btn.show, .btn:first-child:active, :not(.btn-check)+.btn:active {
-  border-radius: 22px;
-  background-color: #009630;
-  margin: 4px;
-  
-}
-/* delete button  */
-.delete-button{
-  border-radius: 22px;
-  background-color: #eb807d;
 
-  border: 0px;
-}
-.delete-button:hover{
-  border-radius: 22px;
-  background-color: #af2e29;
-
-}
-
-/* Read More  */
+/* Read More ======== */
 .Blog-Data .Read-More a{
   color: #9a9a9a;
-  font-style: italic;
   text-decoration: none;
+  font-style: italic;
+  margin-left: 10px;
 }
 .Blog-Data .Read-More a:hover{
 color: #009630;
 }
+/* delete button =========== */
+.Blog-Data .footer-btn .delete-button{
+  margin-right: 40px;
+  color:  #9a9a9a;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.Blog-Data .footer-btn .delete-button:hover{
+  color: #f86666;
+  cursor: pointer;
+}
+/* ADD Post Button ======== */
+.Blog-Data .footer-btn .add-Post a{
 
+  color:  #9a9a9a;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  text-decoration: none;
+}
+
+.Blog-Data .footer-btn .add-Post a:hover{
+  color: #021a29;
+  cursor: pointer;
+}
+
+/* Edit Post ========= */
+.Blog-Data .footer-btn .edit-post a{
+  margin-left: 40px;
+  color:  #9a9a9a;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  text-decoration: none;
+}
+.Blog-Data .footer-btn .edit-post a:hover{
+  color: #021a29;
+  cursor: pointer;
+}
 
 /* BANNER start ============================*/
 
@@ -78,8 +95,7 @@ color: #009630;
   padding-top: 40px;
 
 }
-/* Data File  */
-
+/* BLOG data CARD  */
 .Blog-Data .card{
   border: none;
   margin: 0px 80px;
@@ -97,4 +113,11 @@ color: #009630;
   border-radius: 30px;
   padding: 10px;
 }
+/*  EditPost  ==================================*/
+.Edit-Post-Card .card {
+  background-color: #eff8ff;
+  border-radius: 30px;
+  padding: 10px;
+}
+
 
