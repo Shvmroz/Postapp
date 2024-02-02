@@ -40,15 +40,16 @@ const Edit = () => {
                         <div className="col-lg-12">
                             <div className="card my-3">
                                 <div className="card-body">
+                                    <h6> Post : {data.id}</h6>
+                                    <hr />
                                     <h3 className="card-title g-clr"><span className='text-black' >Title:</span> {data.title}</h3>
                                     <p className="card-text">{data.body}</p>
-                                    <hr />
-                                    <h6> Post : {data.id}</h6>
-                                    {/*  Button trigger Edit Post modal --> */}
-                                    <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        Edit This Post
+                                    <button className='btn btn-success'  data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                        Edit Post
                                     </button>
                                 </div>
+                                    {/*  Button trigger Edit Post modal --> */}
+                                    
                             </div>
                         </div>
                     </div>
