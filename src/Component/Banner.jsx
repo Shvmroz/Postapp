@@ -62,7 +62,7 @@ const Banner = () => {
                               {/* <!-- DELETE Button trigger modal --> */}
                               <span className="footer-btn">
                                 <span className="delete-button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                                  Delete Post
+                                <i class="fa-solid fa-trash-can"></i> Delete
                                 </span>
                                 {/* <!-- Modal --> */}
                                 <div className="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -80,10 +80,10 @@ const Banner = () => {
                                   </div>
                                 </div>
                                 <span className="add-Post">
-                                  <Link to={`/Add`} >Add New Post</Link>
+                                  <Link to={`/Add`} ><i class="fa-solid fa-plus"></i> Add New Post</Link>
                                 </span>
                                 <span className="edit-post">
-                                <Link to={`/Edit/${list.id}`} >Edit Post</Link>
+                                <Link to={`/Edit/${list.id}`} ><i class="fas fa-edit"></i> Edit</Link>
                                 </span>
                               </span>
                             </div>

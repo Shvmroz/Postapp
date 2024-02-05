@@ -44,19 +44,15 @@ const Edit = () => {
                                     <hr />
                                     <h3 className="card-title g-clr"><span className='text-black' >Title:</span> {data.title}</h3>
                                     <p className="card-text">{data.body}</p>
-                                    <button className='btn btn-success'  data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        Edit Post
-                                    </button>
-                                </div>
                                     {/*  Button trigger Edit Post modal --> */}
-                                    
+                                    <button className='btn btn-success'  data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                        <i class="fas fa-edit"></i> Edit</button>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
-
             {/* -- Edit Post Modal  */}
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">
