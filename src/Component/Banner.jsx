@@ -7,8 +7,8 @@ import axios from "axios";
 
 const Banner = () => {
   const [data, setData] = useState([]);
+  const [selected, setSelected] = useState()
 
-  // API calling Handling data
   useEffect(() => {
     axios.get("https://jsonplaceholder.typicode.com/posts")
       .then((response) => {
@@ -20,12 +20,24 @@ const Banner = () => {
       });
   }, []);
 
-  //DELETE Post ========================
+  // DELETE Post ========================
   const handleDelete = (id) => {
-    const update = data.filter(data => data.id !== id)
-    setData(update)
-    console.log(update)
-  }
+    axios.delete(`https://jsonplaceholder.typicode.com/posts/${id}`)
+      .then((response) => {
+        if (response.status === 200) {
+          // Remove the deleted post from the state
+          const updatedData = data.filter(post => post.id !== id);
+          setData(updatedData);
+          console.log('Post deleted successfully:', id);
+        } else {
+          console.error('Error deleting post:', response.statusText);
+        }
+      })
+      .catch((error) => {
+        console.error('Error deleting post:', error);
+      });
+  };
+
 
   return (
     <>
@@ -43,7 +55,9 @@ const Banner = () => {
               <img src={img} alt="" className="img-fluid" />
             </div>
           </div>
-
+          <div className="add-Post text-center">
+            <Link to={`/Add`} ><i class="fa-solid fa-plus"></i> Add New Post</Link>
+          </div>
           {/* Map Function on the API data */}
           {data.map((list) => {
             return (
@@ -53,7 +67,7 @@ const Banner = () => {
                     <div className=" col-lg-12">
                       <div className="card my-3 shadow-sm">
                         <div className="card-body">
-                          <div className="card-title p-2 "><h3><span className="g-clr">Title :</span> {list.title}</h3>
+                          <div className="card-title p-2"><h3> {list.title}</h3>
                             <div className="card-text text-black"><p>{list.body}
                               <span className="Read-More">
                                 <Link to={`/post/${list.id}`}>Read more...</Link>
@@ -61,29 +75,12 @@ const Banner = () => {
                               <hr />
                               {/* <!-- DELETE Button trigger modal --> */}
                               <span className="footer-btn">
-                                <span className="delete-button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                                <i class="fa-solid fa-trash-can"></i> Delete
+                                <span className="delete-button" onClick={() => setSelected(list.id)} data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                  <i class="fa-solid fa-trash-can"></i> Delete
                                 </span>
-                                {/* <!-- Modal --> */}
-                                <div className="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                  <div className="modal-dialog modal-dialog-centered">
-                                    <div className="modal-content">
-                                      <div className="modal-header">
-                                        <h1 className="modal-title fs-5" id="staticBackdropLabel">Are you sure ?</h1>
-                                      </div>
-                                      <div className="modal-footer align-content-between">
-                                        <button type="button" className="btn btn-success" data-bs-dismiss="modal"
-                                          onClick={() => handleDelete(list.id)}>YES</button>
-                                        <button type="button" className="btn btn-danger" data-bs-dismiss="modal">NO</button>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                                <span className="add-Post">
-                                  <Link to={`/Add`} ><i class="fa-solid fa-plus"></i> Add New Post</Link>
-                                </span>
+
                                 <span className="edit-post">
-                                <Link to={`/Edit/${list.id}`} ><i class="fas fa-edit"></i> Edit</Link>
+                                  <Link to={`/Edit/${list.id}`} ><i class="fas fa-edit"></i> Edit</Link>
                                 </span>
                               </span>
                             </div>
@@ -96,6 +93,21 @@ const Banner = () => {
               </div>
             )
           })}
+          {/* <!-- Modal --> */}
+          <div className="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div className="modal-dialog modal-dialog-centered">
+              <div className="modal-content">
+                <div className="modal-header">
+                  <h1 className="modal-title fs-5" id="staticBackdropLabel">Are you sure ?</h1>
+                </div>
+                <div className="modal-footer align-content-between">
+                  <button type="button" className="btn btn-success" data-bs-dismiss="modal"
+                    onClick={() => handleDelete(selected)}>YES</button>
+                  <button type="button" className="btn btn-danger" data-bs-dismiss="modal">NO</button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 

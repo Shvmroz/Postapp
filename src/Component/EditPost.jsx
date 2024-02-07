@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import BackButton from './Backbutton';
 
 const Edit = () => {
     const [data, setData] = useState([]);
@@ -13,6 +14,8 @@ const Edit = () => {
         axios.get(`https://jsonplaceholder.typicode.com/posts/${id}`)
             .then((response) => {
                 setData(response.data);
+                setTheTitle(response.data.title); // Set theTitle state with fetched title
+                setBody(response.data.body); // Set body state with fetched body
             })
             .catch((error) => {
                 console.error('Error fetching data:', error);
@@ -20,8 +23,17 @@ const Edit = () => {
     }, [id]);
 
     const handleSaveChanges = () => {
-        // Make an axios request to update the post with new username and body
-        axios.put(`https://jsonplaceholder.typicode.com/posts/${id}`, { title: theTitle, body: body })
+        const updatedData = {};
+
+        if (theTitle !== '') {
+            updatedData.title = theTitle;
+        }
+
+        if (body !== '') {
+            updatedData.body = body;
+        }
+
+        axios.patch(`https://jsonplaceholder.typicode.com/posts/${id}`, updatedData)
             .then((response) => {
                 console.log('Post updated successfully:', response.data);
                 setData(response.data);
@@ -45,7 +57,7 @@ const Edit = () => {
                                     <h3 className="card-title g-clr"><span className='text-black' >Title:</span> {data.title}</h3>
                                     <p className="card-text">{data.body}</p>
                                     {/*  Button trigger Edit Post modal --> */}
-                                    <button className='btn btn-success'  data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    <button className='btn btn-success' data-bs-toggle="modal" data-bs-target="#exampleModal">
                                         <i class="fas fa-edit"></i> Edit</button>
                                 </div>
                             </div>
@@ -63,12 +75,12 @@ const Edit = () => {
                         </div>
                         {/* BODY */}
                         <div class="modal-body">
-                            <h6 className="card-text">New Title</h6>
+                            <h6 className="card-text">Update New Title</h6>
                             <input type="text" placeholder='Enter New Title'
                                 style={{ width: '100%', marginBottom: '30px', borderRadius: '8px', padding: '5px' }}
                                 value={theTitle} onChange={(e) => setTheTitle(e.target.value)} />
 
-                            <h6 className="card-text">Detail</h6>
+                            <h6 className="card-text">Update Detail</h6>
                             <textarea typeof='text' placeholder='Enter New text'
                                 style={{ width: '100%', borderRadius: '8px', padding: '5px' }}
                                 value={body} onChange={(e) => setBody(e.target.value)} />
@@ -79,6 +91,7 @@ const Edit = () => {
                     </div>
                 </div>
             </div>
+            <BackButton/>
         </>
     );
 };

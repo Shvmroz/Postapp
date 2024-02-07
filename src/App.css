@@ -35,16 +35,34 @@ body {
 .btn-planner {
   border-radius: 22px;
   background-color: #009630;
-  margin: 4px;
+  color: white;
+  border: 0px;
+  padding: 6px;
+
+}
+.btn-planner a{
+  text-decoration: none;
+  color: white ;
+  margin: 6px;
   font-weight: bold;
 }
-
 .btn-planner:hover {
   background-color: #075607;
 }
+/* BACK button ======== */
 
-
-/* Read More ======== */
+.back-button {
+  position: fixed;
+  bottom: 40px;
+  right: 45px;
+  border: 1px solid #ccc;
+  border-radius: 22px;
+  padding: 8px 12px;
+  background-color: #009630;
+  font-weight: bold;
+  color: #eff8ff;
+}
+/* Read More button ======== */
 .Blog-Data .Read-More a{
   color: #9a9a9a;
   text-decoration: none;
@@ -54,9 +72,23 @@ body {
 .Blog-Data .Read-More a:hover{
 color: #009630;
 }
+/* ADD Post Button ======== */
+.banner-wrapper .add-Post a{
+  color:  #009630;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  text-decoration: none;
+}
+
+.banner-wrapper .add-Post a:hover{
+  color: #002e0f;
+  cursor: pointer;
+  background-color: #e3ffec;
+  padding: 8px;
+  border-radius: 8px;
+}
 /* delete button =========== */
 .Blog-Data .footer-btn .delete-button{
-  margin-right: 40px;
+  margin-right: 30px;
   color:  #9a9a9a;
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
@@ -64,22 +96,10 @@ color: #009630;
   color: #f86666;
   cursor: pointer;
 }
-/* ADD Post Button ======== */
-.Blog-Data .footer-btn .add-Post a{
 
-  color:  #9a9a9a;
-  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  text-decoration: none;
-}
 
-.Blog-Data .footer-btn .add-Post a:hover{
-  color: #009630;
-  cursor: pointer;
-}
-
-/* Edit Post ========= */
+/* Edit Post button ========= */
 .Blog-Data .footer-btn .edit-post a{
-  margin-left: 40px;
   color:  #9a9a9a;
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   text-decoration: none;
@@ -119,5 +139,15 @@ color: #009630;
   border-radius: 30px;
   padding: 10px;
 }
+
+/* VALIDATIONS text =============== */
+.text-validation{
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: red;
+  padding: 3px;
+  margin-left: 5px;
+  font-size: small;
+}
+/* ========================= */
 
 

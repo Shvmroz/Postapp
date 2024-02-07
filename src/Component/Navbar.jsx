@@ -25,11 +25,11 @@ const Navbar = () => {
                                 <a className="nav-link" href='/#'>about <i class="fa fa-heart"></i></a>
                             </li>
                         </ul>
-                        <form className="d-flex" >
-                            <a style={{ textDecoration: 'none', paddingTop: '10px', marginRight: '20px', color: 'black' }}
+                        <form className="d-flex align-baseline" >
+                            <a style={{ textDecoration: 'none', paddingTop: '5px', marginRight: '20px', color: 'black' }}
                                 href='/#'> <b>blog</b> <i class="fa-solid fa-message"></i></a>
-                            <button className="btn btn-planner" type="submit">
-                                <Link style={{ textDecoration: 'none', color: 'white' }}
+                            <button className="btn-planner" type="submit">
+                                <Link
                                     to='/#'> planner <i class="fa-solid fa-leaf" style={{ color: 'white' }}></i>
                                 </Link>
                             </button>

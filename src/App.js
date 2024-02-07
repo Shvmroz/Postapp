@@ -18,7 +18,6 @@ function App() {
         <Route path='/Add' element={<AddPost />} />
         <Route path='/Edit/:id' element={<Edit/>} />
       </Routes>
-
     </div>
   );
 }
