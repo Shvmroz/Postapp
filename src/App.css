@@ -80,11 +80,11 @@ color: #009630;
 }
 
 .banner-wrapper .add-Post a:hover{
-  color: #002e0f;
+  color: white;
   cursor: pointer;
-  background-color: #e3ffec;
+  background-color: #009630;
   padding: 8px;
-  border-radius: 8px;
+  border-radius: 10px;
 }
 /* delete button =========== */
 .Blog-Data .footer-btn .delete-button{
