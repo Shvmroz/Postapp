@@ -5,10 +5,10 @@ import { useParams } from 'react-router-dom';
 import BackButton from './Backbutton';
 
 const DetailPage = () => {
-    const [data, setData] = useState([]);
-    const [loading, setLoading] = useState(true); // State to manage loading
     let { id } = useParams();
-
+    const [data, setData] = useState([]);
+    
+    const [loading, setLoading] = useState(true); // State to manage loading
     useEffect(() => {
         // Set loading to true initially
         setLoading(true);
@@ -27,7 +27,6 @@ const DetailPage = () => {
                 }, 3000);
             }
         };
-
         fetchData();
     }, [id]);
 

@@ -38,7 +38,6 @@ body {
   color: white;
   border: 0px;
   padding: 6px;
-
 }
 .btn-planner a{
   text-decoration: none;
@@ -53,14 +52,15 @@ body {
 
 .back-button {
   position: fixed;
-  bottom: 40px;
-  right: 45px;
+  bottom: 50px;
+  right: 40px;
   border: 1px solid #ccc;
   border-radius: 22px;
-  padding: 8px 12px;
+  padding: 8px 25px;
   background-color: #009630;
   font-weight: bold;
   color: #eff8ff;
+  margin: 10px;
 }
 /* Read More button ======== */
 .Blog-Data .Read-More a{

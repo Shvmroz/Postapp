@@ -3,7 +3,7 @@ import './App.css';
 import Navbar from './Component/Navbar';
 import Banner from './Component/Banner';
 import { Routes, Route } from 'react-router-dom';
-import DetailPage from './Component/Detail';
+import DetailPage from './Component/Readmore';
 import AddPost from './Component/AddPost';
 import Edit from './Component/EditPost';
 
