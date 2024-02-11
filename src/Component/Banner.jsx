@@ -1,18 +1,17 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import img from "../Images/image_2024_01_16T07_44_25_972Z.png";
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
 import axios from "axios";
-
 
 const Banner = () => {
   const [data, setData] = useState([]);
-  const [selected, setSelected] = useState()
+  const [selected, setSelected] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     axios.get("https://jsonplaceholder.typicode.com/posts")
       .then((response) => {
-        console.log(response)
+        console.log(response);
         setData(response.data);
       })
       .catch((error) => {
@@ -20,12 +19,11 @@ const Banner = () => {
       });
   }, []);
 
-  // DELETE Post ========================
   const handleDelete = (id) => {
+    setLoading(true);
     axios.delete(`https://jsonplaceholder.typicode.com/posts/${id}`)
       .then((response) => {
         if (response.status === 200) {
-          // Remove the deleted post from the state
           const updatedData = data.filter(post => post.id !== id);
           setData(updatedData);
           console.log('Post deleted successfully:', id);
@@ -35,9 +33,13 @@ const Banner = () => {
       })
       .catch((error) => {
         console.error('Error deleting post:', error);
+      })
+      .finally(() => {
+        setTimeout(() => {
+          setLoading(false);
+        }, 2000); // Set timeout for 2 seconds
       });
   };
-
 
   return (
     <>
@@ -56,9 +58,8 @@ const Banner = () => {
             </div>
           </div>
           <div className="add-Post text-center">
-            <Link to={`/Add`} ><i class="fa-solid fa-plus"></i> Add New Post</Link>
+            <Link to={`/Add`} ><i className="fa-solid fa-plus"></i> Add New Post</Link>
           </div>
-          {/* Map Function on the API data */}
           {data.map((list) => {
             return (
               <div className="Blog-Data " key={list.id} >
@@ -76,11 +77,11 @@ const Banner = () => {
                               {/* <!-- DELETE Button trigger modal --> */}
                               <span className="footer-btn">
                                 <span className="delete-button" onClick={() => setSelected(list.id)} data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                                  <i class="fa-solid fa-trash-can"></i> Delete
+                                  <i className="fa-solid fa-trash-can"></i> Delete
                                 </span>
 
                                 <span className="edit-post">
-                                  <Link to={`/Edit/${list.id}`} ><i class="fas fa-edit"></i> Edit</Link>
+                                  <Link to={`/Edit/${list.id}`} ><i className="fas fa-edit"></i> Edit</Link>
                                 </span>
                               </span>
                             </div>
@@ -94,16 +95,32 @@ const Banner = () => {
             )
           })}
           {/* <!-- Modal --> */}
-          <div className="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div className="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div className="modal-dialog modal-dialog-centered">
               <div className="modal-content">
                 <div className="modal-header">
                   <h1 className="modal-title fs-5" id="staticBackdropLabel">Are you sure ?</h1>
                 </div>
                 <div className="modal-footer align-content-between">
-                  <button type="button" className="btn btn-success" data-bs-dismiss="modal"
-                    onClick={() => handleDelete(selected)}>YES</button>
-                  <button type="button" className="btn btn-danger" data-bs-dismiss="modal">NO</button>
+                  <button
+                    type="button"
+                    className="btn btn-danger"
+                    onClick={() => handleDelete(selected)}
+                    disabled={loading}
+                  >
+                    {loading ? (
+                      <>
+                        <span className="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true">
+                          <span className="visually-hidden">...</span>
+                        </span>
+                        Deleting...
+                      </>
+                    ) : (
+                      'YES'
+                    )}
+                  </button>
+
+                  <button type="button" className="btn btn-secondary " data-bs-dismiss="modal">NO</button>
                 </div>
               </div>
             </div>
@@ -115,3 +132,4 @@ const Banner = () => {
   );
 };
 export default Banner;
+
